@@ -1,0 +1,41 @@
+武器はランチャーで敵が自分の前方にいた場合は攻撃し、それ以外の時はランダムに行動するAIを作ると以下のようになります。
+例)
+class Ika extends PlayCharacter
+{
+  RandomAi1()
+  {
+    this.setAiName("イカ");
+    this.setImg(loadImage("ika.png"));
+    this.setWeapon(1);
+  }
+  
+  public int ai(StageTile[][] sT){
+    if(this.getDirection()==0){
+      for(int i=0;i<10;i++){
+        if(this.enemy(this.getX(),this.getY()-(i+1)) > 0 ){
+          return 5;
+        }
+      }
+    }else if(this.getDirection()==1){
+      for(int i=0;i<10;i++){
+        if(this.enemy(this.getX()+(i+1),this.getY()) > 0 ){
+          return 5;
+        }
+      }
+    }else if(this.getDirection()==2){
+      for(int i=0;i<10;i++){
+        if(this.enemy(this.getX(),this.getY()+(i+1)) > 0 ){
+          return 5;
+        }
+      }
+    }else{
+      for(int i=0;i<10;i++){
+        if(this.enemy(this.getX()-(i+1),this.getY()) > 0 ){
+          return 5;
+        }
+      }
+    }
+    int q=int(random(6));
+    return q;
+  }
+}
