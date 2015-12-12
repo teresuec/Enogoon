@@ -1,3 +1,3 @@
 # Enogoon
-�����TeRes2015�NAI�ΐ�ō쐬�����Q�[���ł��B
-�쐬��: @uttsu
+これはTeRes2015年AI対戦で作成したゲームです。  
+作成者: @uttsu
